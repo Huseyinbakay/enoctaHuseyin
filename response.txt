@@ -1,0 +1,8 @@
+<html>
+  <body>{
+  "InvoiceLink": "http://abc.com/invoice.pdf",
+  "Result": {
+    "success": true
+  }
+}</body>
+</html>

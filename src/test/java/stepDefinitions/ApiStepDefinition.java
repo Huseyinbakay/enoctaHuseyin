@@ -9,7 +9,8 @@ import io.cucumber.java.en.When;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import baseUrl.BaseClassApi;
-import org.testng.Assert;
+
+import org.junit.Assert;
 import utilities.ConfigReader;
 import utilities.Driver;
 
@@ -19,8 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
-import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.assertTrue;
+import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 
 public class ApiStepDefinition extends BaseClassApi {
@@ -49,8 +50,7 @@ public class ApiStepDefinition extends BaseClassApi {
 
     @Then("Response içine {string} olduğu doğrulanır")
     public void responseIçineOlduğuDoğrulanır(String arg0) {
-        Assert.assertEquals(response.statusCode(), 200,
-                "token endpointi ile response status code 200'den farklı");
+       assertEquals("token endpointi ile response status code 200'den farklı",response.statusCode(), 200);
 
         json=response.jsonPath();
         assertTrue("Response body"+arg0+"içermiyor",
@@ -90,8 +90,7 @@ public class ApiStepDefinition extends BaseClassApi {
     @And("response içerisinde {string} true değeri olduğu doğrulanır")
     public void responseIçerisindeTrueDeğeriOlduğuDoğrulanır(String arg0) {
 
-        Assert.assertTrue(response.jsonPath().getBoolean("Result.success"),
-                "Response success false");
+        Assert.assertTrue("Response success false",response.jsonPath().getBoolean("Result.success") );
 
     }
 

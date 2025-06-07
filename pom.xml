@@ -73,6 +73,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M1</version>
                 <configuration>
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
                     <parallel>methods</parallel>
                     <threadCount>2</threadCount>
                     <!--aynı anda 2 browser çalıştırılacağı anlamına gelir. -->

@@ -77,7 +77,7 @@ public class UiStepDefinition {
     }
 
     @And("Arama sonuçlarında fiyat filtresi olarak {string} ile {string} TL aralığı seçilir")
-    public void aramaSonuçlarındaFiyatFiltresiOlarakIleTLAralığıSeçilir(String arg0, String arg1) {
+    public void aramaSonuçlarındaFiyatFiltresiOlarakIleTLAralığıSeçilir(String arg0, String arg1) throws InterruptedException {
 
         ReusableMetods.explicitlyWait(amazonHomePage.priceFilterGo);
         actions.scrollToElement(amazonHomePage.priceFilterGo).perform();
@@ -109,6 +109,12 @@ public class UiStepDefinition {
             amazonHomePage.memoryFilter.click();
 
         }catch (Exception e){
+
+            Driver.getDriver().navigate().refresh();
+            amazonHomePage.memoryFilter.click();
+            Thread.sleep(1000);
+            amazonHomePage.memoryFilter.click();
+
 
         }
 
@@ -155,7 +161,7 @@ public class UiStepDefinition {
                 String str = element.getText().split("%")[1];
               String pointStr= str.substring(0, 2);
                 System.out.println("pointStr = " + pointStr);
-                Integer point=Integer.parseInt(pointStr);
+                Integer point=Integer.valueOf(pointStr);
               storePoint.add(point);
             }
 

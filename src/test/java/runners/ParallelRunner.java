@@ -9,9 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {
                 "pretty",
-                "html:target/default-cucumber-reports1.html",
-                "json:target/json-reports/cucumber1.json",
-                "junit:target/xml-report/cucumber1.xml",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "rerun:TestOutPut/failed_scenario.txt"},
         features = "src/test/resources/features",
         glue = {"stepDefinitions", "hooks"},

@@ -33,7 +33,7 @@ public class Hook  extends BaseClassApi{
         if( scenario.isFailed()){
             TakesScreenshot ts = (TakesScreenshot) Driver.getDriver();
             scenario.attach(ts.getScreenshotAs(OutputType.BYTES),"image/png","scenario"+scenario.getName());
-            Driver.closeDriver();
+           Driver.closeDriver();
         }
          Driver.closeDriver();
     }

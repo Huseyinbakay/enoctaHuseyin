@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
                 "rerun:TestOutPut/failed_scenario.txt"},
         features = "src/test/resources/features",
         glue = {"stepDefinitions", "hooks"},
-        tags = "@UI",
+        tags = "@API",
         dryRun = false,
         monochrome = false
 
